@@ -2,6 +2,11 @@
 
 import math
 
+# recipe & ingredients arguments needs to be a dict
+# dicts need to be in the same form
+
+
+
 def recipe_batches(recipe, ingredients):
   pass 
 

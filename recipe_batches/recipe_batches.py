@@ -17,21 +17,24 @@ import math
 
 def recipe_batches(recipe, ingredients):
 
-	batches = {}
-	num_of_possible_batches = 0
+	# batches = {}
+	# num_of_possible_batches = []
+	batches = 0
+	print("Recipe.keys(): ", recipe.keys())
+	print("Ingredients.keys(): ", ingredients.keys())
 
 	# loop through recipe
-	for key in recipe.keys():
-		# print("I am the keys: ", key)
-		# print("I am the values: ", recipe[key])
+	for key in recipe.items():
+		print("RK: ", recipe.keys())
+		print("IK: ", ingredients.keys())
 
-		# compare keys in recipe to keys in ingredients
+		# compare keys in recipe to keys in ingredients and update # of batches
 		if key in ingredients and recipe[key] < ingredients[key]:
-			
-			# find possible num of baches and udpated batches var
+			value = recipe[key] // ingredients[key]
+			batches = value
+			print("batches: ", batches)
+			return batches
 
-
-			print("Key: ", recipe[key])
 		else:
 			# no possible batches if we get here
 			return 0
@@ -43,13 +46,13 @@ def recipe_batches(recipe, ingredients):
 	return "Return statement"
 	
 	
-print(recipe_batches({ 'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5 }, { 'milk': 1500, 'flour': 40, 'sugar': 100, 'butter': 50} ))
+print(recipe_batches({ 'milk': 2, 'sugar': 40, 'butter': 20 }, { 'milk': 5, 'sugar': 120, 'butter': 500 }))
 
 
-if __name__ == '__main__':
-    # Change the entries of these dictionaries to test
-    # your implementation with different inputs
-    recipe = {'milk': 100, 'butter': 50, 'flour': 5}
-    ingredients = {'milk': 132, 'butter': 48, 'flour': 51}
-    print("{batches} batches can be made from the available ingredients: {ingredients}.".format(
-        batches=recipe_batches(recipe, ingredients), ingredients=ingredients))
+# if __name__ == '__main__':
+#     # Change the entries of these dictionaries to test
+#     # your implementation with different inputs
+#     recipe = {'milk': 100, 'butter': 50, 'flour': 5}
+#     ingredients = {'milk': 132, 'butter': 48, 'flour': 51}
+#     print("{batches} batches can be made from the available ingredients: {ingredients}.".format(
+#         batches=recipe_batches(recipe, ingredients), ingredients=ingredients))
